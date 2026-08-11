@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinite Web Solutions | End-to-End Digital Production</title>
+  <meta name="description" content="Infinite Web Solutions - Bridging the gap between high-end visual identity and secure, scalable web architecture. Web Design, UI/UX, Graphic Design, Video Production.">
+  <meta name="keywords" content="Infinite Web Solutions, Web Architecture, Python, Django, Flask, UI/UX Design, Visual Design, Video Production, Khatima, Uttarakhand">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238B5CF6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 12c-2-2.3-4-3.5-6-3.5A4.5 4.5 0 1 0 10.5 15c2.3 0 3.5-2 6-6.5A4.5 4.5 0 1 1 18 15c-2.3 0-3.5-2-6-3.5z'/></svg>">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brandDark: '#07090E',
+            brandCard: '#0F1420',
+            brandCardHover: '#161D2E',
+            accentBlue: '#3B82F6',
+            accentPurple: '#8B5CF6',
+            accentMagenta: '#D946EF',
+          },
+          fontFamily: {
+            heading: ['Montserrat', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-brandDark text-gray-100 font-body antialiased selection:bg-purple-600 selection:text-white relative">
+
+  <!-- Background Ambient Glow Accents -->
+  <div class="ambient-glow glow-blue top-0 left-1/4 w-[500px] h-[500px]"></div>
+  <div class="ambient-glow glow-purple top-1/3 right-10 w-[600px] h-[600px]"></div>
+  <div class="ambient-glow glow-blue bottom-1/4 left-10 w-[500px] h-[500px]"></div>
+
+  <!-- 1. STICKY HEADER -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 nav-glass transition-all duration-300 py-5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-purple-600 to-pink-500 p-0.5 shadow-lg shadow-purple-600/30 group-hover:scale-105 transition-transform duration-300">
+          <div class="w-full h-full bg-brandDark rounded-[10px] flex items-center justify-center">
+            <svg class="w-6 h-6 text-purple-400 group-hover:rotate-45 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12c-2-2.3-4-3.5-6-3.5A4.5 4.5 0 1 0 10.5 15c2.3 0 3.5-2 6-6.5A4.5 4.5 0 1 1 18 15c-2.3 0-3.5-2-6-3.5z"/>
+            </svg>
+          </div>
+        </div>
+        <span class="font-heading font-bold text-xl sm:text-2xl tracking-tight text-white group-hover:text-purple-300 transition-colors">
+          Infinite <span class="gradient-text">Web Solutions</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#services" class="desktop-nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors duration-200">Services</a>
+        <a href="#tech-stack" class="desktop-nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors duration-200">Tech Stack</a>
+        <a href="#work" class="desktop-nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors duration-200">Work</a>
+        <a href="#contact" class="desktop-nav-link text-sm font-medium text-gray-300 hover:text-purple-400 transition-colors duration-200">Contact</a>
+      </nav>
+
+      <!-- Right Header CTA Button & Mobile Trigger -->
+      <div class="flex items-center space-x-4">
+        <a href="#contact" class="btn-gradient hidden sm:inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide">
+          <span>Start a Project</span>
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobile-menu-btn" aria-label="Open navigation menu" class="md:hidden p-2 rounded-lg bg-gray-900 border border-gray-800 text-gray-300 hover:text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-brandDark/95 backdrop-blur-2xl hidden flex flex-col justify-between p-6 md:hidden">
+    <div class="flex items-center justify-between">
+      <span class="font-heading font-bold text-xl text-white">Infinite <span class="gradient-text">Web Solutions</span></span>
+      <button id="close-menu-btn" class="p-2 text-gray-400 hover:text-white">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div class="flex flex-col space-y-6 my-auto text-center">
+      <a href="#services" class="mobile-nav-link text-2xl font-semibold text-gray-200 hover:text-purple-400">Services</a>
+      <a href="#tech-stack" class="mobile-nav-link text-2xl font-semibold text-gray-200 hover:text-purple-400">Tech Stack</a>
+      <a href="#work" class="mobile-nav-link text-2xl font-semibold text-gray-200 hover:text-purple-400">Work</a>
+      <a href="#contact" class="mobile-nav-link text-2xl font-semibold text-gray-200 hover:text-purple-400">Contact</a>
+    </div>
+    <div class="pt-6 border-t border-gray-800">
+      <a href="#contact" class="mobile-nav-link btn-gradient w-full py-3.5 rounded-xl text-center font-semibold block text-white shadow-lg">Start a Project</a>
+    </div>
+  </div>
+
+
+  <!-- 2. HERO SECTION -->
+  <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 text-center lg:text-left">
+          
+          <div class="inline-block mb-6">
+            <div class="pulse-badge">
+              <span class="pulse-dot"></span>
+              <span>Next-Gen Agency Platform & Digital Studio</span>
+            </div>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] mb-6">
+            Infinite Web Solutions: <br class="hidden sm:inline" />
+            <span class="gradient-text">End-to-End Digital Production.</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-gray-400 font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed mb-10">
+            Bridging the gap between high-end visual identity and secure, scalable web architecture. We construct high-converting web experiences that elevate your brand and accelerate enterprise growth.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="#work" class="btn-gradient w-full sm:w-auto px-8 py-4 rounded-full text-base font-semibold text-center flex items-center justify-center group shadow-xl">
+              <span>View Our Work</span>
+              <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </a>
+            
+            <a href="#contact" class="btn-outline w-full sm:w-auto px-8 py-4 rounded-full text-base font-semibold text-center flex items-center justify-center">
+              <span>Partner With Us</span>
+            </a>
+          </div>
+
+          <!-- Trust Markers -->
+          <div class="mt-12 pt-8 border-t border-gray-800/80 grid grid-cols-3 gap-6 text-center lg:text-left">
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-white font-heading">100%</div>
+              <div class="text-xs sm:text-sm text-gray-400 mt-1">Secure Architecture</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-white font-heading">Python</div>
+              <div class="text-xs sm:text-sm text-gray-400 mt-1">Django & Flask Stack</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-white font-heading">AI-Ready</div>
+              <div class="text-xs sm:text-sm text-gray-400 mt-1">Visual Production</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Dynamic Reel Placeholder Graphic -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Floating Decorative Badges -->
+            <div class="absolute -top-4 -left-4 z-20 bg-brandCard/90 border border-purple-500/30 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl hidden sm:flex items-center gap-3">
+              <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
+              <span class="text-xs font-semibold text-gray-200">Python / Django Backend</span>
+            </div>
+
+            <div class="absolute -bottom-4 -right-4 z-20 bg-brandCard/90 border border-blue-500/30 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl hidden sm:flex items-center gap-3">
+              <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+              <span class="text-xs font-semibold text-gray-200">High-Conversion UI/UX</span>
+            </div>
+
+            <!-- Graphic Card Container -->
+            <div class="relative rounded-2xl overflow-hidden border border-purple-500/20 bg-brandCard p-2 shadow-2xl shadow-purple-900/20 group">
+              <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-gray-900">
+                <img src="assets/images/hero-tech.png" alt="Infinite Web Solutions Digital Production Reel Graphic" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                
+                <!-- Overlay Reel Play Button Badge -->
+                <div class="absolute inset-0 bg-gradient-to-t from-brandDark/80 via-transparent to-transparent flex flex-col justify-between p-6">
+                  <div class="flex justify-between items-start">
+                    <span class="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full text-xs font-mono text-purple-300 border border-purple-500/30">SHOWREEL 2026</span>
+                    <span class="w-3 h-3 rounded-full bg-purple-500"></span>
+                  </div>
+
+                  <div class="flex items-center gap-4 bg-brandDark/80 backdrop-blur-md p-3.5 rounded-xl border border-white/10">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white shrink-0">
+                      <svg class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-semibold text-white">Production Reel & Architecture</div>
+                      <div class="text-xs text-gray-400">Interactive Media • High-Contrast Design</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 3. SERVICES GRID (THE 4 PILLARS) -->
+  <section id="services" class="py-24 relative bg-brandDark/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-purple-400 mb-3">Our Core Capabilities</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-heading">
+          The <span class="gradient-text">4 Pillars</span> of Digital Production
+        </p>
+        <p class="text-gray-400 mt-4 text-base sm:text-lg">
+          We combine cutting-edge technology stacks with creative visual mastery to craft full-spectrum digital solutions.
+        </p>
+      </div>
+
+      <!-- 2x2 Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Pillar 1: Web Design & Architecture -->
+        <div class="glow-card p-8 sm:p-10 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-blue-900/30 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-6 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-lg">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+              </svg>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors font-heading">
+              Web Design & Architecture
+            </h3>
+            
+            <p class="text-gray-400 leading-relaxed text-sm sm:text-base mb-6">
+              Highlighting custom front-end development, seamless e-commerce platforms, and robust, enterprise-grade secure backends powered by <span class="text-purple-300 font-semibold">Python</span>, <span class="text-purple-300 font-semibold">Django</span>, and <span class="text-purple-300 font-semibold">Flask</span>. Built for speed, scale, and ironclad security.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800">
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-blue-400 border border-blue-900/50">Python & Django</span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-purple-400 border border-purple-900/50">Flask</span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-gray-300 border border-gray-800">E-Commerce</span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-gray-300 border border-gray-800">Secure APIs</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2: UI/UX Design -->
+        <div class="glow-card p-8 sm:p-10 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-purple-900/30 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-6 group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 group-hover:text-white transition-all duration-300 shadow-lg">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+              </svg>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors font-heading">
+              UI/UX Design
+            </h3>
+            
+            <p class="text-gray-400 leading-relaxed text-sm sm:text-base mb-6">
+              Focused on psychology-driven, conversion-optimized interfaces. We map user journeys, eliminate friction points, and craft sleek modern dark-mode layouts that captivate users and maximize lead conversion rate.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800">
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-purple-400 border border-purple-900/50">Figma Prototyping</span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-gray-300 border border-gray-800">Conversion UX</span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-gray-300 border border-gray-800">User Research</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3: Graphic & Visual Design -->
+        <div class="glow-card p-8 sm:p-10 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-pink-900/30 border border-pink-500/30 flex items-center justify-center text-pink-400 mb-6 group-hover:bg-gradient-to-r group-hover:from-pink-600 group-hover:to-purple-600 group-hover:text-white transition-all duration-300 shadow-lg">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+              </svg>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors font-heading">
+              Graphic & Visual Design
+            </h3>
+            
+            <p class="text-gray-400 leading-relaxed text-sm sm:text-base mb-6">
+              Showcasing complete visual brand identity systems, modern marketing banners, vector typography, and AI-assisted asset creation to ensure your brand commands attention across all media formats.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800">
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-pink-400 border border-pink-900/50">Brand Identity</span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-purple-400 border border-purple-900/50">AI Asset Creation</span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-gray-300 border border-gray-800">Digital Banners</span>
+          </div>
+        </div>
+
+        <!-- Pillar 4: Video Production -->
+        <div class="glow-card p-8 sm:p-10 flex flex-col justify-between group">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-cyan-900/30 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 group-hover:bg-gradient-to-r group-hover:from-cyan-600 group-hover:to-blue-600 group-hover:text-white transition-all duration-300 shadow-lg">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-purple-300 transition-colors font-heading">
+              Video Production
+            </h3>
+            
+            <p class="text-gray-400 leading-relaxed text-sm sm:text-base mb-6">
+              Narrative structuring, high-impact motion graphics editing with Adobe Premiere, multilingual voice execution, and metadata search optimization tailored for YouTube, promotional campaigns, and social channels.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800">
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-cyan-400 border border-cyan-900/50">Adobe Premiere</span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-gray-300 border border-gray-800">Multilingual Execution</span>
+            <span class="px-3 py-1 rounded-full text-xs font-medium bg-gray-900 text-gray-300 border border-gray-800">Metadata Optimization</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 4. THE TECH STACK STRIP (INFINITE MARQUEE) -->
+  <section id="tech-stack" class="py-16 bg-brandCard/60 border-y border-gray-800/80 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 text-center mb-8">
+      <p class="text-xs font-bold uppercase tracking-widest text-gray-400">Powered By Industry Standard Technologies</p>
+    </div>
+
+    <!-- Infinite Marquee Scroll Container -->
+    <div class="marquee-container py-4">
+      <div class="marquee-content">
+        
+        <!-- Badge 1: Python -->
+        <div class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-purple-500/40 transition-colors shrink-0">
+          <svg class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11.914 0C5.72 0 6.1 2.686 6.1 2.686l.006 2.784h5.922v.834H3.774S0 5.86 0 12.06c0 6.2 3.292 5.97 3.292 5.97h1.966v-2.784s-.106-3.293 3.293-3.293h5.714v-.834H8.553v-5.46h3.361v.001zm-3.28 1.954a.978.978 0 1 1 0 1.957.978.978 0 0 1 0-1.957z"/>
+            <path d="M12.086 24c6.194 0 5.814-2.686 5.814-2.686l-.006-2.784h-5.922v-.834h8.254S24 18.14 24 11.94c0-6.2-3.292-5.97-3.292-5.97h-1.966v2.784s.106 3.293-3.293 3.293h-5.714v.834h5.712v5.46h-3.361v-.001zm3.28-1.954a.978.978 0 1 1 0-1.957.978.978 0 0 1 0 1.957z"/>
+          </svg>
+          <span class="font-heading font-semibold text-gray-200">Python</span>
+        </div>
+
+        <!-- Badge 2: Django -->
+        <div class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-purple-500/40 transition-colors shrink-0">
+          <span class="text-emerald-400 font-extrabold text-xl font-heading">django</span>
+          <span class="font-heading font-semibold text-gray-200">Django</span>
+        </div>
+
+        <!-- Badge 3: Flask -->
+        <div class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-purple-500/40 transition-colors shrink-0">
+          <svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.595 15.1a2 2 0 00-1.808 1.144l-1.08 2.16A2 2 0 004.5 21h15a2 2 0 001.793-2.883l-1.865-2.689z"/>
+          </svg>
+          <span class="font-heading font-semibold text-gray-200">Flask</span>
+        </div>
+
+        <!-- Badge 4: Figma -->
+        <div class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-purple-500/40 transition-colors shrink-0">
+          <svg class="w-5 h-5 text-purple-400" viewBox="0 0 38 57" fill="currentColor">
+            <path d="M19 28.5A9.5 9.5 0 1 1 28.5 19 9.5 9.5 0 0 1 19 28.5z"/>
+            <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z"/>
+            <path d="M0 28.5A9.5 9.5 0 0 1 9.5 19H19v19H9.5A9.5 9.5 0 0 1 0 28.5z"/>
+            <path d="M0 9.5A9.5 9.5 0 0 1 9.5 0H19v19H9.5A9.5 9.5 0 0 1 0 9.5z"/>
+            <path d="M19 0h9.5a9.5 9.5 0 1 1 0 19H19V0z"/>
+          </svg>
+          <span class="font-heading font-semibold text-gray-200">Figma</span>
+        </div>
+
+        <!-- Badge 5: Adobe Premiere -->
+        <div class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-purple-500/40 transition-colors shrink-0">
+          <div class="w-7 h-7 rounded bg-purple-950 border border-purple-500 text-purple-300 font-bold flex items-center justify-center text-xs">Pr</div>
+          <span class="font-heading font-semibold text-gray-200">Adobe Premiere</span>
+        </div>
+
+        <!-- Badge 6: AI Tools -->
+        <div class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-purple-500/40 transition-colors shrink-0">
+          <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          <span class="font-heading font-semibold text-gray-200">AI Production Suite</span>
+        </div>
+
+        <!-- Badge 7: Tailwind CSS -->
+        <div class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-purple-500/40 transition-colors shrink-0">
+          <svg class="w-6 h-6 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C7.666 17.818 9.027 19.2 12.001 19.2c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z"/>
+          </svg>
+          <span class="font-heading font-semibold text-gray-200">Tailwind CSS</span>
+        </div>
+
+        <!-- Duplicated items for seamless marquee repeat -->
+        <div class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-purple-500/40 transition-colors shrink-0">
+          <svg class="w-6 h-6 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11.914 0C5.72 0 6.1 2.686 6.1 2.686l.006 2.784h5.922v.834H3.774S0 5.86 0 12.06c0 6.2 3.292 5.97 3.292 5.97h1.966v-2.784s-.106-3.293 3.293-3.293h5.714v-.834H8.553v-5.46h3.361v.001zm-3.28 1.954a.978.978 0 1 1 0 1.957.978.978 0 0 1 0-1.957z"/>
+            <path d="M12.086 24c6.194 0 5.814-2.686 5.814-2.686l-.006-2.784h-5.922v-.834h8.254S24 18.14 24 11.94c0-6.2-3.292-5.97-3.292-5.97h-1.966v2.784s.106 3.293-3.293 3.293h-5.714v.834h5.712v5.46h-3.361v-.001zm3.28-1.954a.978.978 0 1 1 0-1.957.978.978 0 0 1 0 1.957z"/>
+          </svg>
+          <span class="font-heading font-semibold text-gray-200">Python</span>
+        </div>
+
+        <div class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-purple-500/40 transition-colors shrink-0">
+          <span class="text-emerald-400 font-extrabold text-xl font-heading">django</span>
+          <span class="font-heading font-semibold text-gray-200">Django</span>
+        </div>
+
+        <div class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-purple-500/40 transition-colors shrink-0">
+          <svg class="w-5 h-5 text-purple-400" viewBox="0 0 38 57" fill="currentColor">
+            <path d="M19 28.5A9.5 9.5 0 1 1 28.5 19 9.5 9.5 0 0 1 19 28.5z"/>
+            <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z"/>
+            <path d="M0 28.5A9.5 9.5 0 0 1 9.5 19H19v19H9.5A9.5 9.5 0 0 1 0 28.5z"/>
+            <path d="M0 9.5A9.5 9.5 0 0 1 9.5 0H19v19H9.5A9.5 9.5 0 0 1 0 9.5z"/>
+            <path d="M19 0h9.5a9.5 9.5 0 1 1 0 19H19V0z"/>
+          </svg>
+          <span class="font-heading font-semibold text-gray-200">Figma</span>
+        </div>
+
+        <div class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-purple-500/40 transition-colors shrink-0">
+          <div class="w-7 h-7 rounded bg-purple-950 border border-purple-500 text-purple-300 font-bold flex items-center justify-center text-xs">Pr</div>
+          <span class="font-heading font-semibold text-gray-200">Adobe Premiere</span>
+        </div>
+
+        <div class="flex items-center gap-3 px-6 py-3 rounded-2xl bg-gray-900/90 border border-gray-800 hover:border-purple-500/40 transition-colors shrink-0">
+          <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+          <span class="font-heading font-semibold text-gray-200">AI Production Suite</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 5. PORTFOLIO / CASE STUDIES -->
+  <section id="work" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Section Title -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-widest text-purple-400 mb-3">Selected Projects</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-heading">
+            Featured <span class="gradient-text">Case Studies</span>
+          </p>
+        </div>
+        <p class="text-gray-400 text-sm sm:text-base max-w-md">
+          Explore recent end-to-end digital productions engineered for high conversions, performance, and security.
+        </p>
+      </div>
+
+      <!-- 3 Large Portfolio Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1: E-Commerce Rebrand -->
+        <div data-id="1" class="portfolio-card cursor-pointer group flex flex-col justify-between">
+          <div class="relative aspect-[16/10] overflow-hidden bg-gray-900">
+            <img src="assets/images/portfolio-ecommerce.png" alt="E-Commerce Rebrand Case Study" class="w-full h-full object-cover">
+            
+            <!-- Hover Overlay -->
+            <div class="portfolio-overlay absolute inset-0 p-6 flex flex-col justify-end">
+              <div class="portfolio-details">
+                <span class="text-xs font-bold text-blue-400 uppercase tracking-wider mb-1 block">UI/UX & Architecture</span>
+                <h3 class="text-xl font-bold text-white font-heading mb-2">E-Commerce Rebrand</h3>
+                <p class="text-xs sm:text-sm text-gray-300 line-clamp-2 leading-relaxed">
+                  Psychology-driven storefront redesign boosting conversion rate by 140% with Python backend integration.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 bg-brandCard flex items-center justify-between border-t border-gray-800">
+            <span class="text-xs text-gray-400 font-mono">Custom Python Backend</span>
+            <span class="text-purple-400 group-hover:translate-x-1 transition-transform inline-flex items-center text-xs font-semibold">
+              View Project ➔
+            </span>
+          </div>
+        </div>
+
+        <!-- Card 2: Secure Web Architecture Platform -->
+        <div data-id="2" class="portfolio-card cursor-pointer group flex flex-col justify-between">
+          <div class="relative aspect-[16/10] overflow-hidden bg-gray-900">
+            <img src="assets/images/portfolio-secure-platform.png" alt="Secure Web Architecture Case Study" class="w-full h-full object-cover">
+            
+            <!-- Hover Overlay -->
+            <div class="portfolio-overlay absolute inset-0 p-6 flex flex-col justify-end">
+              <div class="portfolio-details">
+                <span class="text-xs font-bold text-purple-400 uppercase tracking-wider mb-1 block">Enterprise Engineering</span>
+                <h3 class="text-xl font-bold text-white font-heading mb-2">Secure Web Architecture</h3>
+                <p class="text-xs sm:text-sm text-gray-300 line-clamp-2 leading-relaxed">
+                  High-throughput SaaS infrastructure powered by Flask and real-time telemetry security protocols.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 bg-brandCard flex items-center justify-between border-t border-gray-800">
+            <span class="text-xs text-gray-400 font-mono">Flask & Cybersecurity</span>
+            <span class="text-purple-400 group-hover:translate-x-1 transition-transform inline-flex items-center text-xs font-semibold">
+              View Project ➔
+            </span>
+          </div>
+        </div>
+
+        <!-- Card 3: AI Brand & Visual Identity -->
+        <div data-id="3" class="portfolio-card cursor-pointer group flex flex-col justify-between">
+          <div class="relative aspect-[16/10] overflow-hidden bg-gray-900">
+            <img src="assets/images/portfolio-brand-identity.png" alt="AI Brand & Visual Identity Case Study" class="w-full h-full object-cover">
+            
+            <!-- Hover Overlay -->
+            <div class="portfolio-overlay absolute inset-0 p-6 flex flex-col justify-end">
+              <div class="portfolio-details">
+                <span class="text-xs font-bold text-pink-400 uppercase tracking-wider mb-1 block">Visual & Video Production</span>
+                <h3 class="text-xl font-bold text-white font-heading mb-2">AI Brand Identity Suite</h3>
+                <p class="text-xs sm:text-sm text-gray-300 line-clamp-2 leading-relaxed">
+                  Futuristic visual brand identity overhaul featuring AI asset generation and motion graphic ads.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-5 bg-brandCard flex items-center justify-between border-t border-gray-800">
+            <span class="text-xs text-gray-400 font-mono">AI Visuals & Video Production</span>
+            <span class="text-purple-400 group-hover:translate-x-1 transition-transform inline-flex items-center text-xs font-semibold">
+              View Project ➔
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 6. CONTACT & FOOTER SECTION (EXACT DETAILS ENFORCED) -->
+  <section id="contact" class="py-24 relative bg-brandDark/80 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        
+        <!-- Contact Form Box (Left) -->
+        <div class="lg:col-span-7 bg-brandCard border border-gray-800 rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-2xl pointer-events-none"></div>
+
+          <h2 class="text-xs font-bold uppercase tracking-widest text-purple-400 mb-3">Let's Connect</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white font-heading mb-4">Start a Project</h3>
+          <p class="text-gray-400 text-sm sm:text-base mb-8">
+            Ready to turn your vision into a secure, high-converting digital experience? Drop us a line below.
+          </p>
+
+          <!-- Form Status Feedback Box -->
+          <div id="form-status" class="hidden mb-6 p-4 rounded-xl text-sm font-medium"></div>
+
+          <form id="contact-form" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="form-name" class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Your Name *</label>
+                <input type="text" id="form-name" placeholder="John Doe" required class="form-input">
+              </div>
+              <div>
+                <label for="form-email" class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Email Address *</label>
+                <input type="email" id="form-email" placeholder="john@company.com" required class="form-input">
+              </div>
+            </div>
+
+            <div>
+              <label for="form-project" class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Project Type</label>
+              <select id="form-project" class="form-input text-gray-300 cursor-pointer">
+                <option value="web-architecture">Web Architecture & Backends (Python/Django)</option>
+                <option value="ui-ux">UI/UX Design & Conversion Redesign</option>
+                <option value="graphic-ai">Graphic & Visual Brand Identity</option>
+                <option value="video-production">Video Production & Motion Graphics</option>
+                <option value="full-stack">Full-Stack Digital Package</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="form-message" class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Project Details *</label>
+              <textarea id="form-message" rows="4" placeholder="Tell us about your project goals, scope, and timeline..." required class="form-input"></textarea>
+            </div>
+
+            <button type="submit" class="btn-gradient w-full py-4 rounded-xl font-bold tracking-wide text-base shadow-xl flex items-center justify-center gap-2">
+              <span>Send Project Query</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Exact Contact Details Grid (Right) -->
+        <div class="lg:col-span-5 space-y-8 lg:pt-4">
+          
+          <div>
+            <h3 class="text-2xl font-bold text-white font-heading mb-3">Direct Contact</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              We respond promptly to all business inquiries and partnership proposals.
+            </p>
+          </div>
+
+          <!-- Highly Visible Info Grid -->
+          <div class="space-y-6">
+            
+            <!-- Email -->
+            <div class="flex items-start gap-4 p-5 rounded-2xl bg-brandCard/60 border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <div class="w-12 h-12 rounded-xl bg-purple-950/60 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Email Us</div>
+                <a href="mailto:infinitewebsolutionss@gmail.com" class="text-base sm:text-lg font-medium text-white hover:text-purple-300 transition-colors break-all">
+                  infinitewebsolutionss@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="flex items-start gap-4 p-5 rounded-2xl bg-brandCard/60 border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <div class="w-12 h-12 rounded-xl bg-blue-950/60 border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Call / WhatsApp</div>
+                <div class="text-base sm:text-lg font-medium text-white space-y-1">
+                  <div><a href="tel:+917906711906" class="hover:text-purple-300 transition-colors">+91 7906711906</a></div>
+                  <div><a href="tel:+916396285140" class="hover:text-purple-300 transition-colors">+91 6396285140</a></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="flex items-start gap-4 p-5 rounded-2xl bg-brandCard/60 border border-gray-800 hover:border-purple-500/30 transition-colors">
+              <div class="w-12 h-12 rounded-xl bg-pink-950/60 border border-pink-500/30 flex items-center justify-center text-pink-400 shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Location</div>
+                <div class="text-base font-medium text-white leading-snug">
+                  Khatima, Udham Singh Nagar,<br/>Uttarakhand, India
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Social Media Grid Links -->
+          <div class="pt-4 border-t border-gray-800">
+            <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Follow & Connect</div>
+            <div class="flex flex-wrap gap-4">
+              
+              <!-- Instagram -->
+              <a href="https://instagram.com/infinite_web_solutions" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-pink-600/20 via-purple-600/20 to-purple-800/20 border border-pink-500/30 text-white hover:border-pink-500 transition-all group">
+                <svg class="w-5 h-5 text-pink-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <div>
+                  <div class="text-xs font-semibold text-gray-200">Instagram</div>
+                  <div class="text-[11px] text-pink-300">@infinite_web_solutions</div>
+                </div>
+              </a>
+
+              <!-- YouTube -->
+              <a href="https://youtube.com/@infinitewebsolutions" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-red-600/20 via-purple-600/20 to-purple-800/20 border border-red-500/30 text-white hover:border-red-500 transition-all group">
+                <svg class="w-5 h-5 text-red-400 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <div>
+                  <div class="text-xs font-semibold text-gray-200">YouTube</div>
+                  <div class="text-[11px] text-red-300">Infinite Web Solutions</div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="py-8 bg-black border-t border-gray-900 text-xs text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      
+      <div class="flex items-center gap-2">
+        <span>Copyright © 2026</span>
+        <span class="font-semibold text-gray-200">Infinite Web Solutions</span>.
+        <span>All rights reserved.</span>
+      </div>
+
+      <div class="flex items-center space-x-6">
+        <a href="#" class="hover:text-purple-400 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-purple-400 transition-colors">Terms of Service</a>
+        <a href="#" class="hover:text-purple-400 transition-colors">Back to Top ↑</a>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- PROJECT LIGHTBOX MODAL -->
+  <div id="project-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-xl hidden flex items-center justify-center p-4">
+    <div class="bg-brandCard border border-purple-500/30 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl relative animate-in fade-in zoom-in duration-200">
+      
+      <button id="close-modal" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brandDark/80 border border-gray-700 text-gray-300 hover:text-white flex items-center justify-center">
+        ✕
+      </button>
+
+      <div class="aspect-[16/9] overflow-hidden bg-gray-900">
+        <img id="modal-img" src="" alt="Project Preview" class="w-full h-full object-cover">
+      </div>
+
+      <div class="p-6 sm:p-8 space-y-4">
+        <div id="modal-tags" class="flex flex-wrap gap-2"></div>
+        <h3 id="modal-title" class="text-2xl font-bold text-white font-heading"></h3>
+        <p id="modal-desc" class="text-gray-300 text-sm leading-relaxed"></p>
+        
+        <div class="pt-4 flex justify-end">
+          <a href="#contact" onclick="document.getElementById('project-modal').classList.add('hidden');" class="btn-gradient px-6 py-2.5 rounded-full text-sm font-semibold inline-flex items-center gap-2">
+            <span>Request Similar Project</span>
+            ➔
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Custom JS Script -->
+  <script src="script.js"></script>
+</body>
+</html>

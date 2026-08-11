@@ -1,0 +1,22 @@
+{
+  "name": "infinite-web-solutions",
+  "version": "1.0.0",
+  "description": "Infinite Web Solutions - High-Converting Single-Page Agency Website & Digital Production Platform",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "agency",
+    "web-solutions",
+    "python",
+    "django",
+    "ui-ux",
+    "tailwind",
+    "vercel",
+    "dark-mode"
+  ],
+  "author": "Infinite Web Solutions",
+  "license": "MIT"
+}
